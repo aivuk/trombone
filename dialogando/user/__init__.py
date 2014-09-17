@@ -2,7 +2,7 @@ from flask import request, flash, redirect, render_template
 from flask.ext.login import login_user, logout_user
 import wtforms
 
-from trombone.models import User
+from dialogando.models import User
 
 import sha
 

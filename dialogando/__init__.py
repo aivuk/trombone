@@ -8,11 +8,11 @@ from flask.ext.login import LoginManager, login_required, login_user, logout_use
 
 import wtforms
 
-import trombone.user as user
-import trombone.main as main
-import trombone.questions as questions
-from trombone.models import *
-from trombone.admin import admin
+import dialogando.user as user
+import dialogando.main as main
+import dialogando.questions as questions
+from dialogando.models import *
+from dialogando.admin import admin
 
 class DefaultConfig(object):
     SECRET_KEY = 'Isthisthereallife?Isthisjustfantasy?Caughtinalandslide'

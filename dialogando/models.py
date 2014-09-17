@@ -48,7 +48,7 @@ class SimpleQuestion(db.Model):
     next_question_id = db.Column(db.Integer)
 
     def __repr__(self):
-        return '{} - {}'.format(self.id, self.title)
+        return u'{} - {}'.format(self.id, self.title)
 
     def create_form(self, request, data=None):
         class QuestionForm(wtforms.Form):
@@ -76,6 +76,7 @@ class SimpleAnswers(db.Model):
     alternative = db.Column(db.Text)
     simple_question_id = db.Column(db.Integer, db.ForeignKey('simple_questions.id'))
     person_id = db.Column(db.Integer, db.ForeignKey('person.id'))
+    question = db.relationship('SimpleQuestion', backref='answers')
 
 class ThemeQuestions(db.Model):
     __tablename__ = 'theme_questions'
@@ -122,7 +123,7 @@ class Person(db.Model):
     answers = db.relationship('SimpleAnswers', backref='person')
 
     def __repr__(self):
-        return '{} ({})'.format(self.name, self.urn_name)
+        return u'{} ({})'.format(self.name, self.urn_name)
 
 class PersonDissertativeAnswer(db.Model):
     __tablename__ = 'person_dissertative_answer'

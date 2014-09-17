@@ -12,8 +12,10 @@
                     <th>Nome</th>
                     <th>Nome da urna</th>
                     <th>email</th>
+		    <th>Texto do email</th>
                     <th>Link</th>
                     <th>Partido</th>
+                    <th>Cargo</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,8 +24,10 @@
                     <td>{{ person.name }}</td>
                     <td>{{ person.urn_name }}</td>
                     <td>{{ person.email }}</td>
+                    <td><a href="/admin/email?id={{ person.id }}">Ver email</a></td>
                     <td><a href="http://dialogando.org/responder/0?u={{ person.slug }}">http://dialogando.org/responder/0?u={{ person.slug }}</a></td>
                     <td>{{ person.party }}</td>
+                    <td>{{ person.candidature }}</td>
                 </tr>
             {% endfor %}
                 </tbody>
