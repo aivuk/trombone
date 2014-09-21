@@ -17,22 +17,32 @@ body {
     color: #EFE8CB;
 }
 
-.navbar-nav > li > a {
+.nav.navbar-nav.navbar-default > li > a {
     color: #EFE8CB;
     padding-left: 55px;
     padding-right: 55px;
     font-size: 18px;
+    background-color: #1F7F66;
 }
 
-.navbar-nav > li > a:hover, a:visited, a:active {
-    background-color: #EFE8CB;
+.nav.navbar-nav.navbar-default > li.active > a {
     color: #1F7F66;
+    padding-left: 55px;
+    padding-right: 55px;
+    font-size: 18px;
+    background-color: #EFE8CB;
 }
-.navbar .navbar-nav {
-    display: inline-block;
-    float: none;
-    color: #EFE8CB;
 
+
+.nav.navbar-nav.navbar-default > li > a:hover, a:visited, a:active {
+    background-color: #295F51;
+    color: #EFE8CB;
+}
+
+.nav.navbar-nav.navbar-default {
+    display: inline-block;
+    color: #EFE8CB;
+    float: none;
 }
 
 .navbar .navbar-collapse {
@@ -72,6 +82,11 @@ body {
 .row h1.person-box-name {
     font-family: 'Dosis', sans-serif;
     font-size: 45px;
+}
+
+.contact-person {
+    font-size: 20px;
+    padding: 30px;
 }
 
 .answers {
@@ -161,12 +176,16 @@ div.area-title.row {
     font-weight: bold;
 }
 
+.person-3 {
+    padding-top: 30px;
+}
+
 .person-3 ul {
     list-style-type: none;
 }
 
 .person-3 ul li {
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 .person-data  {
@@ -335,3 +354,140 @@ div.area-title.row {
 .person-name {
     padding: 20px;
 }
+
+.person-answer-text h2 {
+    font-family: "Dosis",sans-serif;
+    font-size: 28px;
+    text-shadow: 1px 1px rgba(68, 68, 68, 0.3);
+}
+
+.theme-text {
+    color: #307072;
+    font-size: 16px;
+    padding: 10px 10px; 
+}
+
+.theme-row {
+    background-color: #FFFAD5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.question-row {
+    background-color: #DEE6CE;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.answer-row {
+    background-color: #D1DBBD;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.subtheme {
+    color: #105B63;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px 0;
+}
+
+.subtheme.selected {
+    background-color: #DB9E36;
+    color: white;
+}
+
+.question-text {
+    font-size: 16px;
+}
+
+.dissertative-answers {
+    font-size: 16px;
+}
+
+.person-page-photo {
+    padding: 20px;
+}
+
+.dissertative-answer {
+    background-color:#FAF1E3;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    padding: 15px 10px;
+    color: #105B63;
+    font-size: 20px;
+}
+
+.no-answer {
+    font-size: 20px;
+}
+
+.alternative {
+    padding: 20px 30px;
+    line-height: 24px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    width:40%;
+}
+
+#alternatives {
+    margin: auto;
+    color: white;
+}
+
+#alternative_a {
+    float: left;
+    background-color: #2C65B7;
+}
+
+#alternative_b {
+    float: right;
+    background-color: #AB25BA;
+}
+
+#alternatives_buttons {
+    margin: auto;
+    width: 35%;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.alt_button {
+    text-align: center;
+    width: 17%;
+    float: left;
+    color: white;
+    font-size: 20px;
+}
+
+.alt_button h3 {
+    font-size: 20px;
+    line-height: 10px;
+}
+
+.alt1 {
+    background-color: #2C65B7;
+}
+
+.alt2 {
+    background-color: #323F9E;
+}
+.alt3 {
+    background-color: #4C407A;
+}
+.alt4 {
+    background-color: #833493;
+}
+.alt5 {
+    background-color: #AB25BA;
+}
+
+.selected-alternative {
+    font-weight: bold;
+    font-size: 18px;
+}
+

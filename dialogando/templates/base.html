@@ -40,27 +40,15 @@
     
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a href="#">Temas</a></li>
+          <ul class="nav navbar-nav navbar-default">
+            <li class="{{ 'active' if request.path == '/temas' }}"><a href="/temas">Temas</a></li>
             <li><a href="#">Respostas</a></li>
-            <li><a href="#">Sobre</a></li>
+            <li class="{{ 'active' if request.path == '/sobre' }}"><a href="/sobre">Sobre</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
 
-    <div class="jumbotron header">
-        <div class="row row-md-height">
-            <div class="col-md-6 col-md-height col-middle">
-            <img class="logo" src="/static/img/dialogando-logo.png">
-            </div>
-            <div class="header-text col-md-4 col-md-height col-middle">
-            Botando a internet na eleição de 2014
-            <p/>
-            <b>Privacidade, Transparência e Liberdade de Expressão</b>?
-            </div>
-        </div>
-    </div>
     <div class="content">
         {% block content %}{% endblock %}
     </div>

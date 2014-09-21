@@ -66,7 +66,7 @@ class Topic(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title =  db.Column(db.Text)
     description = db.Column(db.Text)
-    simple_question = db.relationship(SimpleQuestion)
+    simple_question = db.relationship(SimpleQuestion, backref='topic_info')
 
 class SimpleAnswers(db.Model):
     __tablename__ = 'simple_answers'

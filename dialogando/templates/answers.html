@@ -5,21 +5,21 @@
     <div class="person">
         <div class="container container-md-height">
             <div class="row row-md-height">
-                <div class="col-md-4 col-md-height col-middle person-1 centered col-top">
-                    <h1 class="person-box-name">Aécio Neves</h1>
-                </div>
-                <div class="col-md-4 col-md-height person-2 centered col-top">
-                    <div class="person-photo">
-                        <img src="/static/img/aecio-02.png">
+                <div class="col-md-1 col-md-height person-1 centered col-top">
+                    <div class="person-page-photo">
+                        <img src="/static/img/dialogando-avatar-01.png">
                     </div>
                 </div>
-                <div class="col-md-4 col-md-height person-3 col-middle">
+                <div class="col-md-6 col-md-height col-middle person-2 col-top">
+                    <h1 class="person-box-name">{{ person.urn_name }}</h1>
+                </div>
+                <div class="col-md-5 col-md-height person-3 col-middle">
                     <ul class="person-data">
-                       <li> Candidato a <b>PRESIDÊNCIA</b></li>
-                       <li> Partido <b>PSDB</b></li>
+                       <li> Candidato a <b> {{ person.candidature }}</b></li>
+                       <li> Partido <b> {{ person.party }} </b></li>
                        <li>
-                            Aécio Neves da Cunha (Belo Horizonte, 10 de março de 1960) é um economista e político brasileiro, filiado ao Partido da Social Democracia Brasileira (PSDB). Foi o décimo sétimo governador de Minas Gerais entre 1º de janeiro de 2003 a 31 de março de 2010, sendo senador pelo mesmo estado. Aécio é o candidato de seu partido à presidência do Brasil na eleição de 2014.
-                       </li>
+
+                      </li>
                     </ul>
                 </div>
             </div>
@@ -27,32 +27,138 @@
     </div>
 
     <div class="area-title row">
-        <div class="col-md-2">
-        <h2>Respostas</h2>
+        <div class="container">
+            <div class="col-md-2">
+                <h2>Respostas</h2>
+            </div>
         </div>
     </div>
 
     <div class="person-answers">
         <div class="container container-md-height">
             <div class="row row-md-height">
-                <div class="col-md-4 col-md-height person-answer person-answer-1 centered col-top">
+                {% for topic in topics %}
+                <div class="col-md-4 col-md-height person-answer person-answer-{{ loop.index }} centered col-top">
                     <div class="person-answer-text">
-                        <h2>Privacidade de dados</h2>
+                        <h2>{{ topic.title }}</h2>
+                        {% for q in topic.simple_question %}
+                        <div class="subtheme{{ ' selected' if q.id == selected_question_id }}">
+                            <a href="/respostas/{{ person.id }}/{{ q.id }}">{{ q.title }}</a>
+                        </div>
+                        {% endfor %}
                     </div>
                 </div>
-                <div class="col-md-4 col-md-height person-answer person-answer-2 centered col-top">
-                    <div class="person-answer-text">
-                        <h2>Transparência governamental</h2>
-                    </div>
-                </div>
-                <div class="col-md-4 col-md-height person-answer person-answer-3 centered col-top">
-                    <div class="person-answer-text">
-                        <h2>Liberdade de expressão</h2>
-                    </div>
-                </div>
+                {% endfor%}
             </div>
         </div>
     </div>
 
+    <div class="theme-row">
+        <div class="container container-md-height">
+           <div class="row">
+                <div class="col-md-12 theme-text">
+                {{ question.topic_info.description }} 
+                </div>
+           </div>
+        </div>
+    </div>
+
+    <div class="question-row">
+        <div class="container container-md-height">
+           <div class="row">
+                <div class="col-md-12 question-text">
+                    <h2>{{ question.title }}</h2>
+                    {{ question.description }}
+                </div>
+           </div>
+        </div>
+    </div>
+
+    <div class="answer-row">
+        <div class="container container-md-height">
+           <div class="row">
+                <div class="col-md-12 dissertative-answers">
+                {{ question.dissertative_1|safe}}
+                    {% if answer.dissertative_1 %}
+                    <div class="container">
+                        <div class="col-md-2">
+                        <img src="/static/img/dialogando-avatar-01.png">
+                        <br>
+                        {{ person.urn_name }}
+                        </div>
+                        <div class="col-md-8 dissertative-answer">
+                        {{ answer.dissertative_1 }}
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="container no-answer">
+                        <div class="col-md-12">
+                            <b>O candidato não respondeu ainda esta questão.</b>
+                        </div>
+                    </div>
+                    {% endif %}
+                <br>
+                {{ question.dissertative_2|safe}}
+                <p>
+                {% if answer.dissertative_2 %}
+                <div class="container">
+                    <div class="col-md-2">
+                        <img src="/static/img/dialogando-avatar-01.png">
+                        <br>
+                        {{ person.urn_name }}
+                    </div>
+                    <div class="col-md-8 dissertative-answer">
+                        {{ answer.dissertative_2 }}
+                    </div>
+                </div>
+                {% else %}
+                <div class="container no-answer">
+                    <div class="col-md-12">
+                        <b>O candidato não respondeu ainda esta questão.</b>
+                    </div>
+                </div>
+                {% endif %}
+                <p>
+                <div class="row-fluid">
+                    <div class="field_area field3_color span12">
+                          <div class="field_content span10">
+                              {% if answer.alternative %}
+                              {{ person.urn_name }} escolheu a alternativa {{ answer.alternative }} das seguintes: 
+                              {% else %}
+                              <b>{{ person.urn_name }} não escolheu qualquer alternativa das seguintes: </b>
+                              {% endif %}
+                              <p/>
+                              <ul>
+                                  <li class="{{ 'selected-alternative' if answer.alternative == '1' }}">1 se concorda fundamentalmente com afirmação A;</li>
+                                  <li class="{{ 'selected-alternative' if answer.alternative == '2' }}">2 se concorda mais com a afirmação A;</li>
+                                  <li class="{{ 'selected-alternative' if answer.alternative == '3' }}">3 se concorda com as duas igualmente;</li>
+                                  <li class="{{ 'selected-alternative' if answer.alternative == '4' }}">4 se concorda mais com a afirmação B;</li>
+                                  <li class="{{ 'selected-alternative' if answer.alternative == '5' }}">5 se concorda fundamentalmente com a afirmação B.</li>
+                              </ul>
+                  
+                              <p/>
+                 
+                              <div id="alternatives">
+                                  <div id="alternative_a" class="alternative">
+                                      <h4>Alternativa A</h4>
+                                      {{ question.alternative_a}}
+                                  </div>
+                                  <div id="alternative_b" class="alternative">
+                                      <h4>Alternativa B</h4>
+                                      {{ question.alternative_b}}
+                                  </div>
+                                  <div style="clear: both;"></div>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+ 
+                </div>
+           </div>
+        </div>
+    </div>
+
 {% endblock %}
+
 
