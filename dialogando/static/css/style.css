@@ -356,7 +356,7 @@ td { vertical-align: top; }
 }
 
 .field_content {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 18px;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -483,4 +483,8 @@ a.question_button, a.question_button:visited {
 
 textarea {
     width: 100%;
+}
+
+.persons-list th {
+    padding: 20px;
 }

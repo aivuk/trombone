@@ -42,7 +42,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-default">
             <li class="{{ 'active' if request.path == '/temas' }}"><a href="/temas">Temas</a></li>
-            <li><a href="#">Respostas</a></li>
+            <li class="{{ 'active' if request.path == '/respostas' }}"><a href="/respostas">Respostas</a></li>
             <li class="{{ 'active' if request.path == '/sobre' }}"><a href="/sobre">Sobre</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->

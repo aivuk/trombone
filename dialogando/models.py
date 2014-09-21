@@ -120,6 +120,7 @@ class Person(db.Model):
     sex = db.Column(db.Text)
     candidature = db.Column(db.Text)
     received_email = db.Column(db.Boolean)
+    test = db.Column(db.Boolean)
     answers = db.relationship('SimpleAnswers', backref='person')
 
     def __repr__(self):

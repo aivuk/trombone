@@ -54,6 +54,9 @@ app.add_url_rule("/", "root", main.main, methods=['GET'])
 app.add_url_rule("/respostas/<int:person_id>", "answers", main.answers, methods=['GET'])
 app.add_url_rule("/respostas/<int:person_id>/<int:question_id>", "answers", main.answers, methods=['GET'])
 
+# Persons list
+app.add_url_rule("/respostas", "persons", main.all_persons, methods=['GET'])
+
 # About and Themes pages
 app.add_url_rule("/sobre", "sobre", main.about, methods=['GET'])
 app.add_url_rule("/temas", "temas", main.themes, methods=['GET'])

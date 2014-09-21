@@ -12,6 +12,11 @@ def about():
 def themes():
     return render_template('themes.html')
 
+def all_persons():
+    persons = md.db.session.query(md.Person).join(md.SimpleAnswers).filter(md.Person.test == False).order_by(md.Person.urn_name).all()
+
+    return render_template('persons.html', persons=persons)
+
 def main():
     filter_ids = [1]
     rs = []

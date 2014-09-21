@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="jumbotron header">
+        <div class="row row-md-height">
+            <div class="col-md-6 col-md-height col-middle">
+            <img class="logo" src="/static/img/dialogando-logo.png">
+            </div>
+            <div class="header-text col-md-4 col-md-height col-middle">
+            Botando a internet na eleição de 2014
+            <p/>
+            <b>Privacidade, Transparência e Liberdade de Expressão</b>?
+            </div>
+        </div>
+    </div>
+
+    <div class="area-title row">
+        <div class="container">
+            <div class="col-md-12">
+                <p/>
+                <table class="persons-list">
+                    <thead>
+                        <th> Candidato(a) </th>
+                        <th> Partido </th>
+                        <th> Candidatura </th>
+                    </thead>
+                    <tbody>
+                        {% for person in persons %}
+                        <tr>
+                            <td><a href="/respostas/{{ person.id }}">{{ person.urn_name }}</a></td>
+                            <td>{{ person.party }}</td>
+                            <td>{{ person.candidature }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container container-md-height contact-person">
+        <div class="row row-md-height">
+            <div class="col col-md-12 centered">
+                Caro candidato ou candidata, peça o link de acesso à sua página na plataforma escrevendo para <a href="mailto:dialogando@okfn.org.br?Subject=Contato%20Candidato" target="_top">dialogando@okfn.org.br!</a>
+                <br>
+                A plataforma está disponível para os candidatos de São Paulo e a Presidente da República.  
+            </div> 
+        </div>
+    </div>
+{% endblock %}
+

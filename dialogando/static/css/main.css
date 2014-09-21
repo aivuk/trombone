@@ -491,3 +491,19 @@ div.area-title.row {
     font-size: 18px;
 }
 
+.persons-list {
+    margin: 0 auto;
+}
+
+.persons-list th {
+    padding: 20px;
+    background-color: #AFCFBE;
+}
+
+.persons-list td {
+    padding: 5px 20px;
+}
+
+.persons-list > tbody > tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.4);
+}
